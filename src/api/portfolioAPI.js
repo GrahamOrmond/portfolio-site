@@ -1,4 +1,4 @@
-import dbContext from './applicationDbContext';
+import { applicationDbContext as dbContext } from './applicationDbContext';
 
 const endpoints = [
   {

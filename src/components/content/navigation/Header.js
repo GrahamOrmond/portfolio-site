@@ -69,7 +69,7 @@ const Header = () => {
           {NAV_LINKS.public.map(link => (
             <Stack key={link.key} sx={{ display: 'inline-block', fontSize: 0 }}>
               <Text
-                component={link.to ? Link : 'a'}
+                component="a"
                 href={link.href}
                 sx={{
                   display: 'inline-block',
@@ -81,7 +81,6 @@ const Header = () => {
                     textDecoration: 'underline'
                   }
                 }}
-                to={link.to}
                 weight={link.isSelected(pathname) ? 500 : 'normal'}
               >
                 {link.label}

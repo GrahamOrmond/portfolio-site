@@ -5,49 +5,21 @@ const NAV_LINKS = {
     {
       key: 'home',
       label: 'Home',
-      to: '/',
+      href: '#home',
       icon: <></>,
       isSelected: pathname => pathname === '/'
     },
     {
       key: 'about',
       label: 'About',
-      to: '/about',
+      href: '#about',
       icon: <></>,
       isSelected: pathname => pathname === '/about'
     },
     {
-      key: 'Ssills',
-      label: 'Skills',
-      to: '/skills',
-      icon: <></>,
-      isSelected: pathname => pathname === '/skills'
-    },
-    {
-      key: 'work',
-      label: 'Work',
-      to: '/work',
-      icon: <></>,
-      isSelected: pathname => pathname === '/work'
-    },
-    {
-      key: 'experience',
-      label: 'Experience',
-      to: '/experience',
-      icon: <></>,
-      isSelected: pathname => pathname === '/experience'
-    },
-    {
-      key: 'examples',
-      label: 'Examples',
-      to: '/examples',
-      icon: <></>,
-      isSelected: pathname => pathname === '/examples'
-    },
-    {
       key: 'contact',
       label: 'Contact',
-      to: '/contact',
+      href: '#contact',
       icon: <></>,
       isSelected: pathname => pathname === '/contact'
     }

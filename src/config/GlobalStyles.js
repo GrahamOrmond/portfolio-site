@@ -11,7 +11,7 @@ const GlobalStyles = () => {
           width: '100%',
           margin: 0,
           padding: 0,
-          backgroundColor: '#e6e6e7'
+          backgroundColor: '#FFF'
         },
         '.mantine-AppShell-body, .mantine-AppShell-main': mq({
           display: 'flex',

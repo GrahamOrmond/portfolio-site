@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
   Routes
 } from 'react-router-dom';
+import Footer from './components/content/navigation/Footer';
 import Header from './components/content/navigation/Header';
 import GlobalStyles from './config/GlobalStyles';
 import { theme } from './config/theme';
@@ -17,6 +18,7 @@ import HomeView from './views/HomeView';
 const App = () => {
   return (
     <AppShell
+      footer={<Footer />}
       header={<Header />}
       padding={0}
       style={{
