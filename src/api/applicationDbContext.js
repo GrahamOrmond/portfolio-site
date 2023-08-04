@@ -1,4 +1,4 @@
-const dbContext = {
+const applicationDbContext = {
   movies: [
     {
       id: 1,
@@ -7,4 +7,4 @@ const dbContext = {
   ]
 };
 
-export default dbContext;
+export { applicationDbContext };
