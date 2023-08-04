@@ -4,7 +4,8 @@ import {
   Group,
   Footer as MantineFooter,
   Stack,
-  Text
+  Text,
+  Tooltip
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS } from './Links';
@@ -55,17 +56,19 @@ const Footer = () => {
 
           <Group>
             {SOCIAL_ICONS.map(i => (
-              <ActionIcon
-                color="dark"
-                component="a"
-                href={i.link}
-                key={i.key}
-                radius="xl"
-                size={30}
-                target="_blank"
-              >
-                {<i.icon size={30} />}
-              </ActionIcon>
+              <Tooltip key={i.key} label={i.label} position="top">
+                <ActionIcon
+                  color="dark"
+                  component="a"
+                  href={i.link}
+                  radius="xl"
+                  size={30}
+                  target="_blank"
+                  variant="transparent"
+                >
+                  {<i.icon size={30} />}
+                </ActionIcon>
+              </Tooltip>
             ))}
           </Group>
         </Group>

@@ -7,7 +7,6 @@ import {
   Drawer,
   ActionIcon,
   Divider,
-  Button,
   Burger,
   NavLink
 } from '@mantine/core';
@@ -17,13 +16,13 @@ import { NAV_LINKS } from './Links';
 import { mq } from '../../../config/theme';
 
 const Header = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const [isPageAtTop, setIsPageAtTop] = useState(window.pageYOffset === 0);
+  const [isPageAtTop, setIsPageAtTop] = useState(window.scrollY === 0);
 
   useEffect(() => {
-    setIsPageAtTop(window.pageYOffset === 0);
-    window.onscroll = () => setIsPageAtTop(window.pageYOffset === 0);
+    setIsPageAtTop(window.scrollY === 0);
+    window.onscroll = () => setIsPageAtTop(window.scrollY === 0);
 
     return () => (window.onscroll = null);
   }, [pathname]);
@@ -41,7 +40,7 @@ const Header = () => {
       })}
     >
       <Group noWrap sx={{ flex: 1, justifyContent: 'space-between' }}>
-        <Stack component={Link} sx={{ gap: 5, textDecoration: 'none' }} to="/">
+        <Stack component={Link} sx={{ gap: 3, textDecoration: 'none' }} to="/">
           <Text
             color={isPageAtTop ? '#FFF' : '#000'}
             sx={mq({ fontSize: [18, 24, 24, 26], lineHeight: '20px' })}
@@ -69,8 +68,20 @@ const Header = () => {
           {NAV_LINKS.public.map(link => (
             <Stack key={link.key} sx={{ display: 'inline-block', fontSize: 0 }}>
               <Text
-                component="a"
-                href={link.href}
+                component={Link}
+                onClick={() => {
+                  if (link.key === 'home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    const section = document.getElementById(link.key);
+
+                    section &&
+                      section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                  }
+                }}
                 sx={{
                   display: 'inline-block',
                   textAlign: 'center',
@@ -81,7 +92,8 @@ const Header = () => {
                     textDecoration: 'underline'
                   }
                 }}
-                weight={link.isSelected(pathname) ? 500 : 'normal'}
+                to={link.href}
+                weight={link.isSelected(hash) ? 500 : 'normal'}
               >
                 {link.label}
               </Text>
@@ -109,77 +121,42 @@ const Header = () => {
             <Stack sx={{ gap: 0, height: '100%' }}>
               <Group
                 noWrap
-                sx={{ padding: 10, justifyContent: 'space-between' }}
+                sx={{ padding: '5px 20px', justifyContent: 'space-between' }}
               >
                 <Group noWrap>
-                  <Link
-                    onClick={() => setMobileDrawerOpen(false)}
-                    style={{
-                      textDecoration: 'none',
-                      color: 'black'
-                    }}
-                    to="/lanes"
+                  <Stack
+                    component={Link}
+                    sx={{ gap: 3, textDecoration: 'none' }}
+                    to="/"
                   >
-                    <Group
-                      component={Link}
-                      noWrap
-                      sx={{ gap: 10, textDecoration: 'none' }}
-                      to="/"
+                    <Text
+                      color={isPageAtTop ? '#FFF' : '#000'}
+                      sx={mq({
+                        fontSize: [18, 24, 24, 26],
+                        lineHeight: '20px'
+                      })}
+                      weight={700}
                     >
-                      <Text
-                        color={isPageAtTop ? '#FFF' : '#000'}
-                        size={18}
-                        weight={700}
-                      >
-                        Graham Ormond
-                      </Text>
-                    </Group>
-                  </Link>
+                      Graham Ormond
+                    </Text>
+                    <Text
+                      color={isPageAtTop ? '#FFF' : '#000'}
+                      sx={mq({ fontSize: 14, lineHeight: '20px' })}
+                    >
+                      Full-stack developer
+                    </Text>
+                  </Stack>
                 </Group>
                 <ActionIcon onClick={() => setMobileDrawerOpen(false)}>
                   <X />
                 </ActionIcon>
               </Group>
-              <Divider />
-              <Stack sx={{ gap: 20, padding: 20 }}>
-                <Button
-                  component={Link}
-                  onClick={() => setMobileDrawerOpen(false)}
-                  sx={{
-                    backgroundColor: '#ffdb4d',
-                    '&:hover': {
-                      backgroundColor: '#e6c545'
-                    },
-                    textTransform: 'uppercase',
-                    color: '#000',
-                    boxShadow: '1px 6px 12px 0px #828581',
-                    fontSize: 16
-                  }}
-                  to="/contact-us"
-                >
-                  Log In
-                </Button>
-                <Button
-                  color="dark"
-                  component={Link}
-                  onClick={() => setMobileDrawerOpen(false)}
-                  sx={{
-                    color: isPageAtTop ? '#FFF' : '#000',
-                    border: isPageAtTop ? 'solid 1px #FFF' : 'solid 1px #000'
-                  }}
-                  to="/contact-us"
-                  variant="outline"
-                >
-                  Register
-                </Button>
-              </Stack>
 
               <Divider />
               <Stack sx={{ padding: 10, gap: 5 }}>
                 {NAV_LINKS.public.map(link => (
                   <NavLink
-                    active={link.isSelected(pathname)}
-                    color="yellow"
+                    active={link.isSelected(hash)}
                     component={link.to ? Link : 'a'}
                     href={link.href}
                     icon={link.icon}
@@ -189,14 +166,14 @@ const Header = () => {
                     styles={{
                       root: {
                         backgroundColor: isPageAtTop
-                          ? link.isSelected(pathname)
-                            ? 'rgba(255, 249, 219, 1) !important'
+                          ? link.isSelected(hash)
+                            ? 'rgba(143, 200, 255, 1) !important'
                             : 'transparent !important'
                           : 'unset',
                         '&:hover': {
                           backgroundColor: isPageAtTop
-                            ? 'rgba(255, 249, 219, 1) !important'
-                            : 'rgba(255, 249, 219, 1) !important',
+                            ? 'rgba(143, 200, 255, 1) !important'
+                            : 'rgba(143, 200, 255, 1) !important',
                           color: '#fab005'
                         }
                       }
