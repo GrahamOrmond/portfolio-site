@@ -158,7 +158,7 @@ const HomeView = () => {
                   <Text size={45} sx={{ lineHeight: '40px' }} weight={700}>
                     Graham Ormond
                   </Text>
-                  <Text size={22}>Full-stack Web Developer</Text>
+                  <Text size={22}>Full-Stack Developer</Text>
                 </Stack>
                 <Group>
                   {SOCIAL_ICONS.map(i => (
@@ -258,7 +258,7 @@ const HomeView = () => {
         header="About me"
         id="about"
         image={bitmojiStudying}
-        title="Full-stack Web Developer"
+        title="Full-Stack Developer"
       >
         <Stack sx={{ gap: 15 }}>
           <Text color="grey">

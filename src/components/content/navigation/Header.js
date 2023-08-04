@@ -52,7 +52,7 @@ const Header = () => {
             color={isPageAtTop ? '#FFF' : '#000'}
             sx={mq({ fontSize: 14, lineHeight: '20px' })}
           >
-            Full-stack developer
+            Full-Stack Developer
           </Text>
         </Stack>
         <Group
@@ -143,7 +143,7 @@ const Header = () => {
                       color={isPageAtTop ? '#FFF' : '#000'}
                       sx={mq({ fontSize: 14, lineHeight: '20px' })}
                     >
-                      Full-stack developer
+                      Full-Stack Developer
                     </Text>
                   </Stack>
                 </Group>
