@@ -1,20 +1,22 @@
 import React from 'react';
 import { Group, Image, Stack, Text } from '@mantine/core';
 import PropTypes from 'prop-types';
-import { mq } from '../../../config/theme';
+import { mq } from '../../config/theme';
 
-const HomeSection = ({ id, title, header, image, children }) => {
+const DisplaySection = ({ id, title, header, image, children }) => {
   return (
     <Group
       id={id}
+      style={{ flex: 1 }}
       sx={mq({
         justifyContent: 'center',
         alignItems: 'start',
-        padding: ['20px 20px', '40px 40px', '80px 80px']
+        padding: [20, 40, 80]
       })}
     >
-      <Stack sx={{ flex: 1, maxWidth: 1100 }}>
+      <Stack style={{ flex: 1, maxWidth: 1100 }}>
         <Group
+          style={{ flex: 1 }}
           sx={mq({
             flex: 1,
             alignSelf: 'stretch',
@@ -44,7 +46,7 @@ const HomeSection = ({ id, title, header, image, children }) => {
   );
 };
 
-HomeSection.propTypes = {
+DisplaySection.propTypes = {
   children: PropTypes.any,
   header: PropTypes.string,
   id: PropTypes.string,
@@ -52,4 +54,4 @@ HomeSection.propTypes = {
   title: PropTypes.string
 };
 
-export default HomeSection;
+export default DisplaySection;
