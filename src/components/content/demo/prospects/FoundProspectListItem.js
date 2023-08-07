@@ -12,6 +12,7 @@ const FoundProspectListItem = ({
   return prospect ? (
     <Group sx={{ padding: 10, borderBottom: 'solid 1px lightgrey' }}>
       <Group
+        noWrap
         onClick={e => {
           if (!disabled) {
             onSelect(e);

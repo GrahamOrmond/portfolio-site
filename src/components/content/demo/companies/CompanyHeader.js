@@ -4,18 +4,21 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Plus } from 'tabler-icons-react';
 import AddCompanyModal from './AddCompanyModal';
+import { mq } from '../../../../config/theme';
 
 const CompanyHeader = ({ company }) => {
   const [showAddCompany, setShowAddCompany] = useState(false);
 
   return (
     <Group
-      sx={{
+      sx={mq({
         padding: 10,
-        justifyContent: 'space-between'
-      }}
+        justifyContent: 'space-between',
+        gap: 5,
+        flexDirection: ['column', 'row']
+      })}
     >
-      <Group>
+      <Group sx={{ alignSelf: 'stretch' }}>
         <Breadcrumbs>
           <Anchor color="dark" component={Link} to="/demo/companies">
             <Text size={20} weight={500}>
@@ -31,12 +34,13 @@ const CompanyHeader = ({ company }) => {
           )}
         </Breadcrumbs>
       </Group>
-      <Group>
+      <Group sx={{ alignSelf: 'stretch' }}>
         <Button
           compact
           leftIcon={<Plus />}
           onClick={() => setShowAddCompany(true)}
           radius="xl"
+          sx={mq({ width: '100%', maxWidth: ['unset', 175] })}
         >
           Add Company
         </Button>

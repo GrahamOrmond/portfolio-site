@@ -167,7 +167,7 @@ const AddProspectModal = ({ onClose, onAdd, isOpen, fkCompany }) => {
         </Stack>
 
         <Divider />
-        <Group sx={{ flex: 1, padding: 15 }}>
+        <Group sx={{ padding: 15 }}>
           <Button
             color="dark"
             disabled={formState.isLoading}

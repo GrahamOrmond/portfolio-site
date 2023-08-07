@@ -13,6 +13,7 @@ import {
 import { Link, useParams } from 'react-router-dom';
 import { Building, User } from 'tabler-icons-react';
 import ProspectHeader from './ProspectHeader';
+import { mq } from '../../../../config/theme';
 import { triggerNotification } from '../../../../helpers/notificationHelper';
 import { Context as PortfolioContext } from '../../../../providers/PortfolioProvider';
 
@@ -145,13 +146,21 @@ const ProspectDetails = () => {
               </Group>
               <Divider color="#dee2e6" />
               <Stack sx={{ padding: 10 }}>
-                <Group noWrap>
+                <Group noWrap sx={{ alignItems: 'start' }}>
                   <Avatar radius={100} size={100}>
                     <User size={60} />
                   </Avatar>
                   {formState.editable ? (
                     <Stack style={{ gap: 10, flex: 1 }}>
-                      <Group noWrap sx={{ flex: 1 }}>
+                      <Group
+                        noWrap
+                        sx={mq({
+                          flex: 1,
+                          gap: 10,
+                          alignSelf: 'stretch',
+                          flexDirection: ['column', 'row']
+                        })}
+                      >
                         <TextInput
                           onChange={e =>
                             setFormState({
@@ -161,7 +170,7 @@ const ProspectDetails = () => {
                           }
                           placeholder="First Name"
                           required={!formState.lastName}
-                          style={{ flex: 1 }}
+                          style={{ flex: 1, alignSelf: 'stretch' }}
                           value={formState.firstName}
                         />
                         <TextInput
@@ -173,11 +182,19 @@ const ProspectDetails = () => {
                           }
                           placeholder="Last Name"
                           required={!formState.firstName}
-                          style={{ flex: 1 }}
+                          style={{ flex: 1, alignSelf: 'stretch' }}
                           value={formState.lastName}
                         />
                       </Group>
-                      <Group noWrap sx={{ flex: 1 }}>
+                      <Group
+                        noWrap
+                        sx={mq({
+                          flex: 1,
+                          gap: 10,
+                          alignSelf: 'stretch',
+                          flexDirection: ['column', 'row']
+                        })}
+                      >
                         <TextInput
                           onChange={e =>
                             setFormState({
@@ -186,7 +203,7 @@ const ProspectDetails = () => {
                             })
                           }
                           placeholder="Title"
-                          style={{ flex: 1 }}
+                          style={{ flex: 1, alignSelf: 'stretch' }}
                           value={formState.title}
                         />
                         <TextInput
@@ -197,7 +214,7 @@ const ProspectDetails = () => {
                             })
                           }
                           placeholder="Email"
-                          style={{ flex: 1 }}
+                          style={{ flex: 1, alignSelf: 'stretch' }}
                           type="email"
                           value={formState.email}
                         />
@@ -246,24 +263,43 @@ const ProspectDetails = () => {
                   <Avatar radius={100} size={100}>
                     <Building size={60} />
                   </Avatar>
-                  <Group noWrap sx={{ gap: 20 }}>
-                    <Stack sx={{ gap: 0, flex: 1 }}>
+                  <Group noWrap sx={{ gap: 20, overflow: 'hidden' }}>
+                    <Stack sx={{ gap: 0, flex: 1, overflow: 'hidden' }}>
                       <Text size={20} weight={500}>
                         {prospect.company.name}
                       </Text>
                       <Anchor
                         href={prospect.company.domain}
-                        sx={{ fontSize: 14 }}
+                        sx={{
+                          fontSize: 14,
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis'
+                        }}
                         target="_blank"
                       >
                         {prospect.company.domain}
                       </Anchor>
                     </Stack>
-                    <Stack sx={{ gap: 0, flex: 2 }}>
+                    <Stack
+                      sx={mq({
+                        gap: 0,
+                        flex: 2,
+                        display: ['none', 'none', 'flex']
+                      })}
+                    >
                       <Text size={13}>{prospect.company.description}</Text>
                     </Stack>
                   </Group>
                 </Group>
+                <Stack
+                  sx={mq({
+                    gap: 0,
+                    flex: 2,
+                    display: ['flex', 'flex', 'none']
+                  })}
+                >
+                  <Text size={13}>{prospect.company.description}</Text>
+                </Stack>
               </Stack>
             </Stack>
           </Card>

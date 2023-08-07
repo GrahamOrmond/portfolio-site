@@ -254,7 +254,7 @@ const ProspectList = ({
                             }}
                           />
                         )}
-                        <Group sx={{ gap: 15 }}>
+                        <Group noWrap sx={{ gap: 15 }}>
                           <Avatar radius={'xl'} size={38} variant="filled" />
                           <Stack
                             sx={{
@@ -269,6 +269,7 @@ const ProspectList = ({
                                 color: '#000',
                                 textDecoration: 'none',
                                 lineHeight: '18px',
+                                textWrap: 'nowrap',
                                 '&:hover': {
                                   textDecoration: 'underline'
                                 }

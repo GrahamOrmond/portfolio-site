@@ -3,6 +3,7 @@ import { Button, Group, Loader, Stack, Text } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import DashboardInfoCard from './DashboardInfoCard';
 import DashboardRecentActivityCard from './DashboardRecentActivityCard';
+import { mq } from '../../../../config/theme';
 import { Context as PortfolioContext } from '../../../../providers/PortfolioProvider';
 
 const DashboardView = () => {
@@ -25,7 +26,13 @@ const DashboardView = () => {
       }}
     >
       <Stack>
-        <Group>
+        <Group
+          sx={mq({
+            flexDirection: ['column', 'row'],
+            flex: 1,
+            alignSelf: 'stretch'
+          })}
+        >
           <DashboardInfoCard>
             <Stack sx={{ gap: 15, flex: 1, padding: 20, minHeight: 250 }}>
               <Stack

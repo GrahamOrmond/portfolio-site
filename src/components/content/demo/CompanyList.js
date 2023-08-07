@@ -112,7 +112,9 @@ const CompanyList = ({ disabled, hideFilters }) => {
   }, [companyListState.filter]);
 
   return (
-    <Stack sx={{ gap: 0, maxHeight: '100%', overflow: 'hidden' }}>
+    <Stack
+      sx={{ gap: 0, maxHeight: '100%', maxWidth: '100%', overflow: 'hidden' }}
+    >
       {!hideFilters && (
         <CompanyListFilter
           filterState={companyListState.filter}
@@ -137,6 +139,7 @@ const CompanyList = ({ disabled, hideFilters }) => {
         sx={{
           gap: 0,
           maxHeight: '100%',
+          maxWidth: '100%',
           overflow: 'auto',
           background: '#FFF',
           position: 'relative'
@@ -235,7 +238,7 @@ const CompanyList = ({ disabled, hideFilters }) => {
                             }}
                           />
                         )}
-                        <Group sx={{ gap: 15 }}>
+                        <Group noWrap sx={{ gap: 15 }}>
                           <Avatar radius={'xl'} size={38} variant="filled">
                             <Building size={25} />
                           </Avatar>

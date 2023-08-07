@@ -9,6 +9,7 @@ import {
 } from '@mantine/core';
 import PropTypes from 'prop-types';
 import { ArrowDown, ArrowUp, Dots, Refresh, Search } from 'tabler-icons-react';
+import { mq } from '../../../../config/theme';
 
 const ProspectListFilter = ({
   filterState,
@@ -21,12 +22,13 @@ const ProspectListFilter = ({
 
   return (
     <Group
-      sx={{
+      sx={mq({
         padding: 10,
-        justifyContent: 'space-between'
-      }}
+        justifyContent: 'space-between',
+        flexDirection: ['column', 'row']
+      })}
     >
-      <Group>
+      <Group sx={mq({ flex: [1, 'unset'], alignSelf: 'stretch' })}>
         <TextInput
           icon={<Search />}
           onChange={e =>
@@ -36,6 +38,7 @@ const ProspectListFilter = ({
             })
           }
           placeholder="Search..."
+          style={{ flex: 1 }}
           value={filterState.searchTerm}
         />
         {showActionMenu && onAction && (
@@ -77,7 +80,7 @@ const ProspectListFilter = ({
           </Menu>
         )}
       </Group>
-      <Group>
+      <Group sx={mq({ flex: [1, 'unset'], alignSelf: 'stretch' })}>
         <Select
           data={[
             {
@@ -95,6 +98,7 @@ const ProspectListFilter = ({
               sortBy: value
             })
           }
+          style={{ flex: 1 }}
           value={filterState.sortBy}
         />
         <ActionIcon

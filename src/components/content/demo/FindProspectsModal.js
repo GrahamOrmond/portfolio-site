@@ -42,7 +42,6 @@ const FindProspectsModal = ({ isOpen, onClose, company, onAdd }) => {
         ) ||
         p.title.toLowerCase().includes(modalState.filterSearch.toLowerCase())
     );
-  const t = [];
 
   useEffect(() => {
     if (isOpen) {

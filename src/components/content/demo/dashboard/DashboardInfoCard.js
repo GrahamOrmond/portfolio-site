@@ -10,7 +10,8 @@ const DashboardInfoCard = ({ children }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        flex: 1
+        flex: 1,
+        alignSelf: 'stretch'
       }}
     >
       <Stack sx={{ flex: 1 }}>{children}</Stack>

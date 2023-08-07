@@ -14,6 +14,7 @@ import {
 import { useParams } from 'react-router-dom';
 import { Building, Plus, Search } from 'tabler-icons-react';
 import CompanyHeader from './CompanyHeader';
+import { mq } from '../../../../config/theme';
 import { triggerNotification } from '../../../../helpers/notificationHelper';
 import { Context as PortfolioContext } from '../../../../providers/PortfolioProvider';
 import ProspectList from '../ProspectList';
@@ -145,7 +146,7 @@ const CompanyDetails = () => {
                 </Group>
               </Group>
               <Divider color="#dee2e6" />
-              <Stack sx={{ padding: 10 }}>
+              <Stack sx={{ padding: 10, gap: 10 }}>
                 <Group noWrap>
                   <Avatar radius={100} size={100}>
                     <Building size={60} />
@@ -177,7 +178,14 @@ const CompanyDetails = () => {
                           value={formState.domain}
                         />
                       </Stack>
-                      <Stack sx={{ gap: 0, flex: 2, alignSelf: 'stretch' }}>
+                      <Stack
+                        sx={mq({
+                          gap: 0,
+                          flex: 2,
+                          alignSelf: 'stretch',
+                          display: ['none', 'none', 'flex']
+                        })}
+                      >
                         <Textarea
                           onChange={e =>
                             setFormState({
@@ -199,21 +207,71 @@ const CompanyDetails = () => {
                       </Stack>
                     </Group>
                   ) : (
-                    <Group noWrap sx={{ gap: 20 }}>
-                      <Stack sx={{ gap: 0, flex: 1 }}>
+                    <Group noWrap sx={{ gap: 20, overflow: 'hidden' }}>
+                      <Stack sx={{ gap: 0, flex: 1, overflow: 'hidden' }}>
                         <Text size={20} weight={500}>
                           {company.name}
                         </Text>
-                        <Anchor href={company.domain} target="_blank">
+                        <Anchor
+                          href={company.domain}
+                          sx={{
+                            fontSize: 14,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis'
+                          }}
+                          target="_blank"
+                        >
                           {company.domain}
                         </Anchor>
                       </Stack>
-                      <Stack sx={{ gap: 0, flex: 2 }}>
+                      <Stack
+                        sx={mq({
+                          gap: 0,
+                          flex: 2,
+                          display: ['none', 'none', 'flex']
+                        })}
+                      >
                         <Text size={13}>{company.description}</Text>
                       </Stack>
                     </Group>
                   )}
                 </Group>
+                {formState.editable ? (
+                  <Stack
+                    sx={mq({
+                      gap: 0,
+                      flex: 2,
+                      alignSelf: 'stretch',
+                      display: ['flex', 'flex', 'none']
+                    })}
+                  >
+                    <Textarea
+                      onChange={e =>
+                        setFormState({
+                          ...formState,
+                          description: e.currentTarget.value.substring(0, 500)
+                        })
+                      }
+                      placeholder="description"
+                      styles={{
+                        wrapper: { height: '100%' },
+                        input: { height: '100%' }
+                      }}
+                      sx={{ flex: 1, alignSelf: 'stretch', height: '100%' }}
+                      value={formState.description}
+                    />
+                  </Stack>
+                ) : (
+                  <Stack
+                    sx={mq({
+                      gap: 0,
+                      flex: 2,
+                      display: ['flex', 'flex', 'none']
+                    })}
+                  >
+                    <Text size={13}>{company.description}</Text>
+                  </Stack>
+                )}
               </Stack>
             </Stack>
           </Card>

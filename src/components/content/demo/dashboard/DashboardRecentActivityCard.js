@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Group, Stack, Tabs, Text } from '@mantine/core';
 import DashboardInfoCard from './DashboardInfoCard';
+import { mq } from '../../../../config/theme';
 import CompanyList from '../CompanyList';
 import ProspectList from '../ProspectList';
 
@@ -9,12 +10,19 @@ const DashboardRecentActivityCard = () => {
 
   return (
     <DashboardInfoCard>
-      <Stack sx={{ gap: 0 }}>
-        <Group sx={{ padding: 10, justifyContent: 'space-between' }}>
-          <Stack>
+      <Stack sx={{ gap: 0, maxWidth: '100%' }}>
+        <Group
+          sx={mq({
+            padding: 10,
+            justifyContent: 'space-between',
+            maxWidth: '100%',
+            flexDirection: ['column', 'row']
+          })}
+        >
+          <Stack style={{ flex: 1 }}>
             <Text weight={500}>Recent Activity</Text>
           </Stack>
-          <Group sx={{ gap: 20 }}>
+          <Group noWrap sx={{ gap: 20 }}>
             <Tabs
               defaultValue="companies"
               onTabChange={setActiveTab}
@@ -32,7 +40,14 @@ const DashboardRecentActivityCard = () => {
             </Tabs>
           </Group>
         </Group>
-        <Stack sx={{ padding: 0, maxHeight: 400, overflow: 'auto' }}>
+        <Stack
+          sx={{
+            padding: 0,
+            maxHeight: 400,
+            maxWidth: '100%',
+            overflow: 'auto'
+          }}
+        >
           {activeTab === 'companies' ? (
             <CompanyList disabled hideFilters />
           ) : (

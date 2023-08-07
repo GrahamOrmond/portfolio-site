@@ -3,6 +3,7 @@ import { Anchor, Breadcrumbs, Button, Group, Text } from '@mantine/core';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Plus } from 'tabler-icons-react';
+import { mq } from '../../../../config/theme';
 import AddProspectModal from '../AddProspectModal';
 
 const ProspectHeader = ({ prospect }) => {
@@ -10,12 +11,14 @@ const ProspectHeader = ({ prospect }) => {
 
   return (
     <Group
-      sx={{
+      sx={mq({
         padding: 10,
-        justifyContent: 'space-between'
-      }}
+        justifyContent: 'space-between',
+        gap: 5,
+        flexDirection: ['column', 'row']
+      })}
     >
-      <Group>
+      <Group sx={{ alignSelf: 'stretch' }}>
         <Breadcrumbs>
           <Anchor color="dark" component={Link} to="/demo/prospects">
             <Text size={20} weight={500}>
@@ -31,12 +34,13 @@ const ProspectHeader = ({ prospect }) => {
           )}
         </Breadcrumbs>
       </Group>
-      <Group>
+      <Group sx={{ alignSelf: 'stretch' }}>
         <Button
           compact
           leftIcon={<Plus />}
           onClick={() => setShowAddProspect(true)}
           radius="xl"
+          sx={mq({ width: '100%', maxWidth: ['unset', 175] })}
         >
           Add Prospect
         </Button>

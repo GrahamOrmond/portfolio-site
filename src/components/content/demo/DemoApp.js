@@ -9,6 +9,7 @@ import DashboardView from './Dashboard/DashboardView';
 import DemoHeader from './navigation/DemoHeader';
 import DemoSidebar from './navigation/DemoSidebar';
 import ProspectsView from './Prospects/ProspectsView';
+import { mq } from '../../../config/theme';
 import {
   Context as AuthContext,
   Provider as AuthProvider
@@ -20,29 +21,30 @@ const DemoApp = () => {
   return (
     <Stack
       className="demo-app"
-      sx={{
+      sx={mq({
         flex: 1,
         border: 'solid 1px lightgrey',
         borderRadius: 10,
+        maxWidth: '100vw',
         minHeight: 800,
-        maxHeight: 800,
+        maxHeight: ['unset', 800],
         overflow: 'hidden',
         gap: 0,
         position: 'relative'
-      }}
+      })}
     >
       <DemoHeader />
       <Group sx={{ flex: 1, gap: 0 }}>
         <DemoSidebar />
         <Stack
-          sx={{
+          sx={mq({
             flex: 1,
             alignSelf: 'stretch',
-            maxHeight: 750,
+            maxHeight: ['unset', 750],
             minHeight: 750,
             overflow: 'auto',
             backgroundColor: '#f8f8f8'
-          }}
+          })}
         >
           <Routes>
             <Route element={<DashboardView />} path="/" />

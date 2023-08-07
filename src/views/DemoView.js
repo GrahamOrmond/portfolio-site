@@ -12,7 +12,7 @@ const DemoView = () => {
           minHeight: 'calc(100vh - 135px)',
           justifyContent: 'center',
           alignItems: 'start',
-          padding: [20, 40]
+          padding: [0, 20, 40]
         })}
       >
         <Stack
@@ -22,20 +22,23 @@ const DemoView = () => {
             gap: [40, 40]
           })}
         >
-          <Stack style={{ flex: 1, gap: 0, alignSelf: 'stretch' }}>
-            <Text color="dodgerblue" size={20} weight={700}>
-              Local Demo
-            </Text>
+          <Stack sx={mq({ flex: 1, gap: [0, 20], alignSelf: 'stretch' })}>
+            <Stack sx={mq({ gap: 0, padding: [10, 0] })}>
+              <Text color="dodgerblue" size={20} weight={700}>
+                Local Demo
+              </Text>
+              <Text size={26} weight={900}>
+                No Sign Up Required!
+              </Text>
+            </Stack>
+
             <Stack sx={{ gap: 40 }}>
-              <Stack sx={{ gap: 20 }}>
-                <Text size={26} weight={900}>
-                  No Sign Up Required!
-                </Text>
-                <Group>
-                  <DemoApp />
-                </Group>
-              </Stack>
-              <Text color="grey" sx={{ textAlign: 'center' }} weight={500}>
+              <DemoApp />
+              <Text
+                color="grey"
+                sx={mq({ textAlign: 'center', display: ['none', 'block'] })}
+                weight={500}
+              >
                 CRM demo with a built in prospect finder
               </Text>
             </Stack>
