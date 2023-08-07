@@ -40,7 +40,24 @@ const DemoHeader = () => {
         }}
       >
         <Stack sx={{ padding: 10, gap: 0 }}>
-          <Text weight={500}>Local Demo</Text>
+          <Link
+            style={{
+              textDecoration: 'none',
+              color: 'black'
+            }}
+            to="/demo"
+          >
+            <Group
+              sx={{
+                gap: 1,
+                flexWrap: 'nowrap'
+              }}
+            >
+              <Text size={16} weight={700}>
+                Local Demo
+              </Text>
+            </Group>
+          </Link>
         </Stack>
       </Group>
       <Group sx={mq({ display: ['none', 'none', 'flex'] })}>
@@ -130,7 +147,7 @@ const DemoHeader = () => {
                     textDecoration: 'none',
                     color: 'black'
                   }}
-                  to="/lanes"
+                  to="/demo"
                 >
                   <Group
                     sx={{
