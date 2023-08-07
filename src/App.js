@@ -1,6 +1,5 @@
 import React from 'react';
 import { AppShell, Box, MantineProvider, Stack } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
 import {
   Navigate,
   Route,
@@ -12,7 +11,7 @@ import Header from './components/content/navigation/Header';
 import GlobalStyles from './config/GlobalStyles';
 import { theme } from './config/theme';
 import { Provider as PortfolioProvider } from './providers/PortfolioProvider';
-import AboutView from './views/AboutView';
+import DemoView from './views/DemoView';
 import HomeView from './views/HomeView';
 
 const App = () => {
@@ -46,7 +45,7 @@ const App = () => {
         >
           <Routes>
             <Route element={<HomeView />} path="/" />
-            <Route element={<AboutView />} path="/about" />
+            <Route element={<DemoView />} path="/demo/*" />
             <Route element={<Navigate replace to="/" />} path="*" />
           </Routes>
         </Stack>
@@ -58,7 +57,6 @@ const App = () => {
 export default () => (
   <PortfolioProvider>
     <MantineProvider theme={theme}>
-      <Notifications position="top-right" />
       <GlobalStyles />
       <Router>
         <App />

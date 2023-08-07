@@ -90,7 +90,7 @@ module.exports = {
       title: 'Portfolio',
       template: './src/index.html',
       filename: 'index.html',
-      favicon: ''
+      favicon: './src/images/resume-fav-icon.png'
     }),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin()

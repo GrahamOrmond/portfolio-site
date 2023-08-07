@@ -5,28 +5,35 @@ const NAV_LINKS = {
     {
       key: 'home',
       label: 'Home',
-      href: '#home',
+      href: '/#home',
       icon: <></>,
       isSelected: hash => !hash || hash === '#home'
     },
     {
       key: 'about',
       label: 'About',
-      href: '#about',
+      href: '/#about',
       icon: <></>,
       isSelected: hash => hash === '#about'
     },
     {
       key: 'projects',
       label: 'Projects',
-      href: '#projects',
+      href: '/#projects',
       icon: <></>,
       isSelected: hash => hash === '#projects'
     },
     {
+      key: 'demo',
+      label: 'Demo',
+      href: '/demo',
+      icon: <></>,
+      isSelected: hash => false
+    },
+    {
       key: 'contact',
       label: 'Contact',
-      href: '#contact',
+      href: '/#contact',
       icon: <></>,
       isSelected: hash => hash === '#contact'
     }

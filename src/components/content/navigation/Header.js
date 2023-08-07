@@ -40,7 +40,12 @@ const Header = () => {
       })}
     >
       <Group noWrap sx={{ flex: 1, justifyContent: 'space-between' }}>
-        <Stack component={Link} sx={{ gap: 3, textDecoration: 'none' }} to="/">
+        <Stack
+          component={Link}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          sx={{ gap: 3, textDecoration: 'none' }}
+          to="/"
+        >
           <Text
             color={isPageAtTop ? '#FFF' : '#000'}
             sx={mq({ fontSize: [18, 24, 24, 26], lineHeight: '20px' })}
@@ -72,6 +77,10 @@ const Header = () => {
                 onClick={() => {
                   if (link.key === 'home') {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else if (link.key === 'demo') {
+                    window.scrollTo({
+                      top: 0
+                    });
                   } else {
                     const section = document.getElementById(link.key);
 

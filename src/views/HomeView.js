@@ -10,8 +10,9 @@ import {
   Text,
   Tooltip
 } from '@mantine/core';
-import { BrandGithub, ExternalLink, Mail, Map } from 'tabler-icons-react';
-import HomeSection from '../components/content/home/HomeSection';
+import { Link } from 'react-router-dom';
+import { BrandGithub, ExternalLink, Mail } from 'tabler-icons-react';
+import DisplaySection from '../components/common/DisplaySection';
 import ProjectDisplayCard from '../components/content/home/ProjectDisplayCard';
 import { SOCIAL_ICONS } from '../config/constants';
 import { mq } from '../config/theme';
@@ -152,7 +153,7 @@ const HomeView = () => {
               alignSelf: 'stretch'
             }}
           >
-            <Stack sx={{ flex: 1 }}>
+            <Stack style={{ flex: 1 }}>
               <Stack sx={{ flex: 1, gap: 5 }}>
                 <Stack sx={{ color: '#FFF', gap: 0 }}>
                   <Text size={45} sx={{ lineHeight: '40px' }} weight={700}>
@@ -254,7 +255,7 @@ const HomeView = () => {
         </Stack>
       </Group>
 
-      <HomeSection
+      <DisplaySection
         header="About me"
         id="about"
         image={bitmojiStudying}
@@ -287,21 +288,44 @@ const HomeView = () => {
             experience to your team's success.
           </Text>
         </Stack>
-      </HomeSection>
+      </DisplaySection>
 
       <Divider color="#262626" size={7} />
 
-      <HomeSection header="Portfolio" id="projects" title="Public Projects">
+      <DisplaySection header="Portfolio" id="projects" title="Public Projects">
         <Stack sx={{ gap: 60 }}>
           {PROJECT_DISPLAYS.map(p => (
             <ProjectDisplayCard key={p.key} {...p} />
           ))}
         </Stack>
-      </HomeSection>
+        <Stack
+          sx={{
+            marginTop: 40,
+            gap: 10,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Text size={26} weight={900}>
+            Check out this demo!
+          </Text>
+          <Button
+            component={Link}
+            onClick={() => {
+              window.scrollTo({
+                top: 0
+              });
+            }}
+            to="/demo"
+          >
+            View Demo
+          </Button>
+        </Stack>
+      </DisplaySection>
 
       <Divider color="#262626" size={7} />
 
-      <HomeSection
+      <DisplaySection
         header="Contact me"
         id="contact"
         title="Let's start working!"
@@ -352,7 +376,7 @@ const HomeView = () => {
             </Group>
           ))}
         </Group>
-      </HomeSection>
+      </DisplaySection>
     </Stack>
   );
 };
