@@ -62,7 +62,7 @@ const ExportProspectsModal = ({ isOpen, onClose, prospects }) => {
         </Stack>
         <Divider />
         <Group sx={{ flex: 1, padding: 15 }}>
-          <Button color="dark" onClick={onClose} sx={{ flex: 1 }}>
+          <Button color="dark" onClick={onClose} style={{ flex: 1 }}>
             Cancel
           </Button>
           <Button
@@ -70,7 +70,7 @@ const ExportProspectsModal = ({ isOpen, onClose, prospects }) => {
               downloadCsv();
               onClose();
             }}
-            sx={{ flex: 1 }}
+            style={{ flex: 1 }}
           >
             Export
           </Button>

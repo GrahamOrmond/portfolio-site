@@ -47,7 +47,7 @@ const DeleteProspectsModal = ({ isOpen, onClose, prospects, onDelete }) => {
             color="dark"
             disabled={modalState.isLoading}
             onClick={onClose}
-            sx={{ flex: 1 }}
+            style={{ flex: 1 }}
           >
             Cancel
           </Button>
@@ -73,7 +73,7 @@ const DeleteProspectsModal = ({ isOpen, onClose, prospects, onDelete }) => {
                 }
               );
             }}
-            sx={{ flex: 1 }}
+            style={{ flex: 1 }}
           >
             Delete
           </Button>

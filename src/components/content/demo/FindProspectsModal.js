@@ -182,7 +182,7 @@ const FindProspectsModal = ({ isOpen, onClose, company, onAdd }) => {
               color="dark"
               disabled={modalState.isLoading}
               onClick={onClose}
-              sx={{ flex: 1 }}
+              style={{ flex: 1 }}
               type="button"
             >
               Cancel
@@ -222,7 +222,7 @@ const FindProspectsModal = ({ isOpen, onClose, company, onAdd }) => {
                   }
                 );
               }}
-              sx={{ flex: 1 }}
+              style={{ flex: 1 }}
               type="submit"
             >
               Add{' '}
@@ -277,7 +277,7 @@ const FindProspectsModal = ({ isOpen, onClose, company, onAdd }) => {
               color="dark"
               disabled={modalState.isLoading}
               onClick={onClose}
-              sx={{ flex: 1 }}
+              style={{ flex: 1 }}
               type="button"
             >
               Cancel
@@ -286,7 +286,7 @@ const FindProspectsModal = ({ isOpen, onClose, company, onAdd }) => {
               leftIcon={<Search />}
               loading={modalState.isLoading}
               onClick={() => {}}
-              sx={{ flex: 1 }}
+              style={{ flex: 1 }}
               type="submit"
             >
               Search

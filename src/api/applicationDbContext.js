@@ -2,10 +2,10 @@ const applicationDbContext = {
   companies: [
     {
       id: 1,
-      name: "McDonald's",
+      name: 'McDonald\'s',
       domain: 'https://www.mcdonalds.com/',
       description:
-        "McDonald's Corporation is an American multinational fast food chain, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States",
+        'McDonald\'s Corporation is an American multinational fast food chain, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States',
       createdAt: new Date('2023-01-02'),
       deleted: false
     },
@@ -22,10 +22,10 @@ const applicationDbContext = {
   prospects: [
     {
       id: 1,
-      firstName: 'Graham',
-      lastName: 'Ormond',
-      email: 'ormondwork@gmail.com',
-      title: 'Department Manager',
+      firstName: 'Chris',
+      lastName: 'Kempczinski',
+      email: 'chris@mcdonalds.com',
+      title: 'CEO',
       fkCompany: 1,
       createdAt: new Date('2023-01-02'),
       deleted: false

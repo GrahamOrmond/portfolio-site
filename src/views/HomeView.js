@@ -11,7 +11,7 @@ import {
   Tooltip
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
-import { BrandGithub, ExternalLink, Mail } from 'tabler-icons-react';
+import { BrandGithub, ExternalLink, Mail, Map } from 'tabler-icons-react';
 import DisplaySection from '../components/common/DisplaySection';
 import ProjectDisplayCard from '../components/content/home/ProjectDisplayCard';
 import { SOCIAL_ICONS } from '../config/constants';
@@ -58,7 +58,7 @@ const CONTACT_INFO = [
   //   key: 1,
   //   icon: <Map color="dodgerblue" sx={{ margin: 'auto' }} />,
   //   title: 'Location',
-  //   description: 'Ontario, Canada',
+  //   description: 'Canada',
   //   link: 'https://www.google.com/maps/place/Ontario/'
   // },
   {
@@ -105,27 +105,27 @@ const PROJECT_DISPLAYS = [
       }
     ],
     image: DanielTimothyLeadsLanding
-  },
-  {
-    key: 3,
-    title: 'WeedsTrue',
-    subTitle: 'Community Forum',
-    description:
-      'WeedsTrue is a community-oriented product review forum that fosters engaging conversations among its users. The platform provides a space for sharing experiences and insights on various products within a specific industry. With features such as up/down votes on posts, commenting, and user profiles, the forum encourages interactive discussions. It organizes user posts by brand and products, facilitating easy access to relevant information for community members. As the developer of this platform, I utilized my technical skills to create a user-friendly and informative forum. Please note that the specific industry topic is being assessed for compliance with all relevant laws and regulations to ensure a responsible and legal approach to discussions on the platform.',
-    links: [
-      {
-        to: 'https://github.com/orgs/WeedsTrue/repositories',
-        icon: BrandGithub,
-        label: 'GitHub'
-      },
-      {
-        to: 'https://reviews.weedstrue.ca/',
-        icon: ExternalLink,
-        label: 'View'
-      }
-    ],
-    image: WeedstrueProducts
   }
+  // {
+  //   key: 3,
+  //   title: 'WeedsTrue',
+  //   subTitle: 'Community Forum',
+  //   description:
+  //     'WeedsTrue is a community-oriented product review forum that fosters engaging conversations among its users. The platform provides a space for sharing experiences and insights on various products within a specific industry. With features such as up/down votes on posts, commenting, and user profiles, the forum encourages interactive discussions. It organizes user posts by brand and products, facilitating easy access to relevant information for community members. As the developer of this platform, I utilized my technical skills to create a user-friendly and informative forum. Please note that the specific industry topic is being assessed for compliance with all relevant laws and regulations to ensure a responsible and legal approach to discussions on the platform.',
+  //   links: [
+  //     {
+  //       to: 'https://github.com/orgs/WeedsTrue/repositories',
+  //       icon: BrandGithub,
+  //       label: 'GitHub'
+  //     },
+  //     {
+  //       to: 'https://reviews.weedstrue.ca/',
+  //       icon: ExternalLink,
+  //       label: 'View'
+  //     }
+  //   ],
+  //   image: WeedstrueProducts
+  // }
 ];
 
 const HomeView = () => {
@@ -328,7 +328,7 @@ const HomeView = () => {
       <DisplaySection
         header="Contact me"
         id="contact"
-        title="Let's start working!"
+        title="It's time to grow your business!"
       >
         <Group
           sx={mq({
