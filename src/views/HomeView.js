@@ -22,35 +22,69 @@ import bitmojiWaveLeft from '../images/bitmoji-wave-right.png';
 import CSharpIcon from '../images/c-sharp-icon.svg';
 import DanielTimothyLeadsLanding from '../images/daniel-timothy-leads-landing.png';
 import MysqlIcon from '../images/mysql-icon.svg';
+import QBTConsoleImage from '../images/qbt-console-landing.png';
+import QbtExtendedImage from '../images/qbt-extended-landing.png';
+import QbtLoadboardImage from '../images/qbt-loadboard-landing.png';
 import ReactJsIcon from '../images/react-js-icon.svg';
 import SportsHeadzRegistrationLanding from '../images/sportsheadz-registration-landing.png';
 import WeedstrueProducts from '../images/weedstrue-products.png';
 
-const TECH_STACK_ICONS = [
-  {
+const TECH_LINKS_ENUM = {
+  react: {
     key: 1,
     image: ReactJsIcon,
     label: 'ReactJS',
     link: 'https://react.dev/'
   },
-  {
+  cSharp: {
     key: 2,
     image: CSharpIcon,
     label: 'C#',
     link: 'https://dotnet.microsoft.com'
   },
-  {
+  mySql: {
     key: 3,
     image: MysqlIcon,
     label: 'MySQL',
     link: 'https://www.mysql.com/'
   },
-  {
+  aws: {
     key: 4,
     image: AwsIcon,
     label: 'AWS',
     link: 'https://aws.amazon.com/'
+  },
+  salesforce: {
+    key: 5,
+    image: null,
+    label: 'Salesforce',
+    link: 'https://www.salesforce.com/ca/'
+  },
+  outreach: {
+    key: 6,
+    image: null,
+    label: 'Outreach',
+    link: 'https://www.outreach.io/'
+  },
+  google: {
+    key: 7,
+    image: null,
+    label: 'Google API',
+    link: 'https://cloud.google.com/apis'
+  },
+  stripe: {
+    key: 8,
+    image: null,
+    label: 'Stripe',
+    link: 'https://stripe.com/en-ca'
   }
+};
+
+const TECH_STACK_ICONS = [
+  TECH_LINKS_ENUM.react,
+  TECH_LINKS_ENUM.cSharp,
+  TECH_LINKS_ENUM.mySql,
+  TECH_LINKS_ENUM.aws
 ];
 
 const CONTACT_INFO = [
@@ -73,10 +107,33 @@ const CONTACT_INFO = [
 const PROJECT_DISPLAYS = [
   {
     key: 1,
-    title: 'SportsHeadz | Registration',
-    subTitle: 'Registration Platform',
+    title: 'Registration Platform',
+    subTitle: 'SportsHeadz | Registration',
     description:
-      'As the sole developer, I undertook the ambitious task of developing the SportsHeadz Registration Platform from the ground up. Within the initial 6 months of development, we achieved a significant milestone by successfully finishing the platform and enabling seamless payment processing through Stripe, facilitating secure transactions for users. Beyond the first 6 months, I have continued to work on the project, enhancing and maintaining its functionality. Throughout this ongoing journey, I have had the privilege of receiving valuable guidance and feedback directly from the CTO. The result is an ever-evolving platform that efficiently handles the registration process for kids in sports.',
+      'Sole developer of a platform that registers kids for sports accross Ontario, Canada. With 70+ associations, registering 15,000+ kids a year, SportsHeadz Registration is quickly becoming the top choice for sports registration accross Ontario.',
+    features: [
+      {
+        label: 'Custom Forms'
+      },
+      {
+        label: 'Multiple Payment Providers'
+      },
+      {
+        label: 'Team Builder'
+      },
+      {
+        label: 'Scouting & Evaluations'
+      },
+      {
+        label: 'Financial Reports'
+      }
+    ],
+    techStack: [
+      TECH_LINKS_ENUM.react,
+      TECH_LINKS_ENUM.cSharp,
+      TECH_LINKS_ENUM.mySql,
+      TECH_LINKS_ENUM.stripe
+    ],
     links: [
       {
         to: 'https://register.sportsheadz.com/',
@@ -88,10 +145,36 @@ const PROJECT_DISPLAYS = [
   },
   {
     key: 2,
-    title: 'Daniel Timothy Leads',
-    subTitle: 'Email Marketing CRM',
+    title: 'Email Marketing CRM',
+    subTitle: 'Daniel Timothy Leads',
     description:
-      'Daniel Timothy Leads is a powerful email marketing platform that empowers users to schedule emails using customizable templates. The platform efficiently organizes company and prospect data, streamlining communication and lead management. With a built-in contact finder feature, users can easily discover and reach out to potential clients, enhancing their outreach efforts. This comprehensive and user-friendly solution is designed to optimize email campaigns and maximize engagement, enabling businesses to effectively nurture leads and build lasting relationships with customers.',
+      'Powerful marketing platform that empowers users to schedule and track emails using customizable templates.',
+    features: [
+      {
+        label: 'Email Scheduling'
+      },
+      {
+        label: 'Email Tracking'
+      },
+      {
+        label: 'Email Templates'
+      },
+      {
+        label: 'Prospect Finder'
+      },
+      {
+        label: 'Browser Extension'
+      },
+      {
+        label: '3rd Party Integrations'
+      }
+    ],
+    techStack: [
+      TECH_LINKS_ENUM.react,
+      TECH_LINKS_ENUM.cSharp,
+      TECH_LINKS_ENUM.mySql,
+      TECH_LINKS_ENUM.aws
+    ],
     links: [
       {
         to: 'https://github.com/orgs/DanielTimothyLeads/repositories',
@@ -105,27 +188,150 @@ const PROJECT_DISPLAYS = [
       }
     ],
     image: DanielTimothyLeadsLanding
+  },
+  {
+    key: 3,
+    title: 'Automated lead generation',
+    subTitle: 'QB Console',
+    description:
+      'Internal buisness tool used to generate leads and schedule campaigns. Finding and verifying 1000+ contacts a day and campaigning 1000+ companies a week, the QB Console has become a unique game changer for generating leads.',
+    features: [
+      {
+        label: 'Prospect Finder'
+      },
+      {
+        label: 'Email Validation'
+      },
+      {
+        label: 'Salesforce Integration'
+      },
+      {
+        label: 'Outreach Integration'
+      },
+      {
+        label: 'User Restrictions'
+      },
+      {
+        label: '3rd Party Data Mapping'
+      }
+    ],
+    links: [],
+    techStack: [
+      TECH_LINKS_ENUM.react,
+      TECH_LINKS_ENUM.cSharp,
+      TECH_LINKS_ENUM.mySql,
+      TECH_LINKS_ENUM.salesforce,
+      TECH_LINKS_ENUM.google,
+      TECH_LINKS_ENUM.outreach
+    ],
+    image: QBTConsoleImage
+  },
+  {
+    key: 3,
+    title: 'Transportation spot load bids',
+    subTitle: 'QB Load board',
+    description:
+      'Internal load board for placing spot bids on live transportation autions. Used to centralize all the aution providers into one and make it accessable to every sales member.',
+    links: [],
+    features: [
+      {
+        label: 'Live Transportation loads'
+      },
+      {
+        label: 'Place & Cancel Bids'
+      },
+      {
+        label: 'Group & Restrict Locations'
+      },
+      {
+        label: 'Multiple Load Providers'
+      },
+      {
+        label: 'Bid history'
+      }
+    ],
+    techStack: [
+      TECH_LINKS_ENUM.react,
+      TECH_LINKS_ENUM.cSharp,
+      TECH_LINKS_ENUM.mySql
+    ],
+    image: QbtLoadboardImage
+  },
+  {
+    key: 3,
+    title: 'Google Alerts Manager',
+    subTitle: 'QB Extended',
+    description:
+      'Internal tool used to manage and sync Salesforce accounts with Google Alerts.',
+    links: [],
+    features: [
+      {
+        label: 'Create Google Alerts'
+      },
+      {
+        label: 'Salesforce Integration'
+      },
+      {
+        label: 'Browser Extension'
+      },
+      {
+        label: 'Custom Alert Options'
+      },
+      {
+        label: 'Remove deleted accounts'
+      }
+    ],
+    techStack: [
+      TECH_LINKS_ENUM.react,
+      TECH_LINKS_ENUM.cSharp,
+      TECH_LINKS_ENUM.mySql,
+      TECH_LINKS_ENUM.google
+    ],
+    image: QbtExtendedImage
+  },
+  {
+    key: 3,
+    title: 'Community Forum',
+    subTitle: 'WeedsTrue',
+    description:
+      'Community-oriented product review forum that fosters engaging conversations among its users. The platform provides a space for sharing experiences and insights on various products within a specific industry.',
+    links: [
+      {
+        to: 'https://github.com/orgs/WeedsTrue/repositories',
+        icon: BrandGithub,
+        label: 'GitHub'
+      },
+      {
+        to: 'https://reviews.weedstrue.ca/',
+        icon: ExternalLink,
+        label: 'View'
+      }
+    ],
+    features: [
+      {
+        label: 'Rate & Review Products'
+      },
+      {
+        label: 'Community Comments'
+      },
+      {
+        label: 'User Profiles'
+      },
+      {
+        label: 'Find & Discover Products'
+      },
+      {
+        label: 'Browser Extension'
+      }
+    ],
+    techStack: [
+      TECH_LINKS_ENUM.react,
+      TECH_LINKS_ENUM.cSharp,
+      TECH_LINKS_ENUM.mySql,
+      TECH_LINKS_ENUM.aws
+    ],
+    image: WeedstrueProducts
   }
-  // {
-  //   key: 3,
-  //   title: 'WeedsTrue',
-  //   subTitle: 'Community Forum',
-  //   description:
-  //     'WeedsTrue is a community-oriented product review forum that fosters engaging conversations among its users. The platform provides a space for sharing experiences and insights on various products within a specific industry. With features such as up/down votes on posts, commenting, and user profiles, the forum encourages interactive discussions. It organizes user posts by brand and products, facilitating easy access to relevant information for community members. As the developer of this platform, I utilized my technical skills to create a user-friendly and informative forum. Please note that the specific industry topic is being assessed for compliance with all relevant laws and regulations to ensure a responsible and legal approach to discussions on the platform.',
-  //   links: [
-  //     {
-  //       to: 'https://github.com/orgs/WeedsTrue/repositories',
-  //       icon: BrandGithub,
-  //       label: 'GitHub'
-  //     },
-  //     {
-  //       to: 'https://reviews.weedstrue.ca/',
-  //       icon: ExternalLink,
-  //       label: 'View'
-  //     }
-  //   ],
-  //   image: WeedstrueProducts
-  // }
 ];
 
 const HomeView = () => {
