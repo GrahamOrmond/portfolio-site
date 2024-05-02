@@ -88,13 +88,13 @@ const TECH_STACK_ICONS = [
 ];
 
 const CONTACT_INFO = [
-  // {
-  //   key: 1,
-  //   icon: <Map color="dodgerblue" sx={{ margin: 'auto' }} />,
-  //   title: 'Location',
-  //   description: 'Canada',
-  //   link: 'https://www.google.com/maps/place/Ontario/'
-  // },
+  {
+    key: 1,
+    icon: <Map color="dodgerblue" sx={{ margin: 'auto' }} />,
+    title: 'Location',
+    description: 'Canada',
+    link: 'https://www.google.com/maps/place/Ontario/'
+  },
   {
     key: 2,
     icon: <Mail color="dodgerblue" sx={{ margin: 'auto' }} />,
@@ -109,23 +109,39 @@ const PROJECT_DISPLAYS = [
     key: 1,
     title: 'Registration Platform',
     subTitle: 'SportsHeadz | Registration',
-    description:
-      'Sole developer of a platform that registers kids for sports accross Ontario, Canada. With 70+ associations, registering 15,000+ kids a year, SportsHeadz Registration is quickly becoming the top choice for sports registration accross Ontario.',
+    description: (
+      <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+        <b>Independently developed</b> a platform that registers kids for sports
+        programs accross Canada. With <b>80+ associations</b> and{' '}
+        <b>over 45,000 registrations a year</b>. SportsHeadz Registration is
+        quickly becoming the <b>top choice</b> for associations including{' '}
+        <b>OMHA</b> to handle their registration accross Canada.
+      </Text>
+    ),
     features: [
       {
-        label: 'Custom Forms'
+        label: 'Online Registration'
+      },
+      {
+        label: 'Player Merchandise'
       },
       {
         label: 'Multiple Payment Providers'
       },
       {
-        label: 'Team Builder'
+        label: 'Offline Payments'
+      },
+      {
+        label: 'Customizable Forms'
       },
       {
         label: 'Scouting & Evaluations'
       },
       {
-        label: 'Financial Reports'
+        label: 'Team Management'
+      },
+      {
+        label: 'Reporting and Analytics'
       }
     ],
     techStack: [
@@ -139,6 +155,11 @@ const PROJECT_DISPLAYS = [
         to: 'https://register.sportsheadz.com/',
         icon: ExternalLink,
         label: 'View'
+      },
+      {
+        to: 'https://www.sportsheadz.com/sportsheadz-registration/',
+        icon: ExternalLink,
+        label: 'More Info'
       }
     ],
     image: SportsHeadzRegistrationLanding
@@ -147,8 +168,13 @@ const PROJECT_DISPLAYS = [
     key: 2,
     title: 'Email Marketing CRM',
     subTitle: 'Daniel Timothy Leads',
-    description:
-      'Powerful marketing platform that empowers users to schedule and track emails using customizable templates.',
+    description: (
+      <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+        <b>Email marketing</b> platform that empowers users to{' '}
+        <b>schedule and track</b> emails using customizable templates with{' '}
+        <b>Microsoft Graph</b>.
+      </Text>
+    ),
     features: [
       {
         label: 'Email Scheduling'
@@ -193,8 +219,15 @@ const PROJECT_DISPLAYS = [
     key: 3,
     title: 'Automated lead generation',
     subTitle: 'QB Console',
-    description:
-      'Internal buisness tool used to generate leads and schedule campaigns. Finding and verifying 1000+ contacts a day and campaigning 1000+ companies a week, the QB Console has become a unique game changer for generating leads.',
+    description: (
+      <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+        Internal buisness tool used to{' '}
+        <b>generate leads and schedule campaigns</b>. Finding and verifying{' '}
+        <b>1000+ contacts a day</b> and campaigning{' '}
+        <b>1000+ companies a week</b>, the QB Console has become a unique game
+        changer for generating leads.
+      </Text>
+    ),
     features: [
       {
         label: 'Prospect Finder'
@@ -227,11 +260,16 @@ const PROJECT_DISPLAYS = [
     image: QBTConsoleImage
   },
   {
-    key: 3,
+    key: 4,
     title: 'Transportation spot load bids',
     subTitle: 'QB Load board',
-    description:
-      'Internal load board for placing spot bids on live transportation autions. Used to centralize all the aution providers into one and make it accessable to every sales member.',
+    description: (
+      <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+        Internal load board to place <b>spot bids</b> on live{' '}
+        <b>transportation autions</b>. Used to centralize all the aution
+        providers into one and make it accessable to every sales member.
+      </Text>
+    ),
     links: [],
     features: [
       {
@@ -258,11 +296,15 @@ const PROJECT_DISPLAYS = [
     image: QbtLoadboardImage
   },
   {
-    key: 3,
+    key: 5,
     title: 'Google Alerts Manager',
     subTitle: 'QB Extended',
-    description:
-      'Internal tool used to manage and sync Salesforce accounts with Google Alerts.',
+    description: (
+      <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+        Internal <b>browser extension</b> used to manage and sync{' '}
+        <b>Salesforce</b> accounts with <b>Google Alerts</b>.
+      </Text>
+    ),
     links: [],
     features: [
       {
@@ -290,11 +332,17 @@ const PROJECT_DISPLAYS = [
     image: QbtExtendedImage
   },
   {
-    key: 3,
+    key: 6,
     title: 'Community Forum',
     subTitle: 'WeedsTrue',
-    description:
-      'Community-oriented product review forum that fosters engaging conversations among its users. The platform provides a space for sharing experiences and insights on various products within a specific industry.',
+    description: (
+      <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+        Community-oriented <b>product review forum</b> that fosters engaging
+        conversations among its users. The platform provides a space to{' '}
+        <b>share experiences and insight</b> on various products within a
+        specific industry.
+      </Text>
+    ),
     links: [
       {
         to: 'https://github.com/orgs/WeedsTrue/repositories',
@@ -498,7 +546,7 @@ const HomeView = () => {
 
       <Divider color="#262626" size={7} />
 
-      <DisplaySection header="Portfolio" id="projects" title="Public Projects">
+      <DisplaySection header="Portfolio" id="projects" title="Projects">
         <Stack sx={{ gap: 60 }}>
           {PROJECT_DISPLAYS.map(p => (
             <ProjectDisplayCard key={p.key} {...p} />

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Badge,
   Button,
   Card,
   Divider,
@@ -24,9 +23,6 @@ const ProjectDisplayCard = ({
   techStack
 }) => {
   const halfOfFeatureCount = features ? Math.ceil(features.length / 2) : 0;
-  const sortedFeatures = features
-    ? features.sort((a, b) => a.label.localeCompare(b.label))
-    : [];
 
   const sortedTechStack = techStack
     ? techStack.sort((a, b) => a.label.localeCompare(b.label))
@@ -97,10 +93,15 @@ const ProjectDisplayCard = ({
                 </Text>
               )}
             </Stack>
-            <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
-              {description}
-            </Text>
-            {sortedFeatures.length > 0 && (
+            {typeof description === 'string' ? (
+              <Text color="grey" size={16} sx={{ textAlign: 'center' }}>
+                {description}
+              </Text>
+            ) : (
+              description
+            )}
+
+            {features.length > 0 && (
               <Stack style={{ gap: 5 }}>
                 <Text weight={500}>Key Features</Text>
                 <Group
@@ -116,7 +117,7 @@ const ProjectDisplayCard = ({
                   })}
                 >
                   <List style={{ alignSelf: 'start' }}>
-                    {sortedFeatures.slice(0, halfOfFeatureCount)?.map(f => (
+                    {features.slice(0, halfOfFeatureCount)?.map(f => (
                       <List.Item key={f.label}>
                         <Text
                           color="grey"
@@ -130,8 +131,8 @@ const ProjectDisplayCard = ({
                   </List>
                   {features.length > 1 && (
                     <List style={{ alignSelf: 'start' }}>
-                      {sortedFeatures
-                        .slice(halfOfFeatureCount, sortedFeatures.length)
+                      {features
+                        .slice(halfOfFeatureCount, features.length)
                         ?.map(f => (
                           <List.Item key={f.label}>
                             <Text
@@ -193,7 +194,7 @@ const ProjectDisplayCard = ({
 };
 
 ProjectDisplayCard.propTypes = {
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   features: PropTypes.array,
   image: PropTypes.string,
   links: PropTypes.array,
